@@ -1,0 +1,24 @@
+.purchase__button-block{
+
+}
+.purchase__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    min-width: 275px;
+    background-color: #ff8b38;
+    border: 2px solid #ff8b38;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 3px;
+    margin-right: 20px;
+
+}
+
+.__active {
+
+    background-color: #808080;
+    border: 2px solid #808080;
+   }

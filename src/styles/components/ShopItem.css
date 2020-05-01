@@ -1,0 +1,44 @@
+
+.item {
+    border-radius: 6px;
+    margin-top: 15px;
+    background-color: #ffffff;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop__img-wrap {
+    display: flex;
+    width: 175px;
+    height: 115px;
+    justify-content: center;
+    padding: 20px;
+}
+.shop__img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.shop__description {
+    width: 200px;
+
+}
+.button__price-block {
+    align-self: end;
+    justify-self: end;
+    text-align: right;
+}
+
+.button__price {
+    padding-bottom: 8px;
+}
+.shop__title {
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+
+.shop__text {
+    font-size: 12px;
+}

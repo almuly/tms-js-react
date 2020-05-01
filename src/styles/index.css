@@ -1,0 +1,11 @@
+/**@import "./fonts.css";**/
+*{
+    margin: 0;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 600;
+}
+body{
+    background-color: #d8d8d8;
+    font-size: 16px;
+    color: #252525;
+}

@@ -1,0 +1,14 @@
+.basket__amount {
+    font-size: 9px;
+}
+.basket__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    min-width: 14px;
+    height: 14px;
+    background-color: #ff8b38;
+    border-radius: 50%;
+    transform: translateY(-8px);
+}
