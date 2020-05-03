@@ -37,4 +37,3 @@ console.log(this.props);
         )
     }
 }
-export default PurchaseButton;

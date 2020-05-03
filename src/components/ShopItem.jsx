@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import '../styles/components/ShopItem.css';
 import '../styles/components/PurchaseButton.css';
-import {Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 import PurchaseButton from './PurchaseButton';
@@ -20,15 +20,6 @@ export default class ShopItem extends Component {
         };
     }
 
-    handleBasket(product) {
-        return active => {
-            if (active) {
-                this.props.addToBasket(product);
-            } else {
-                this.props.removeFromBasket(product);
-            }
-        }
-    }
 
     componentDidMount() {
         fetch("http://www.nbrb.by/api/exrates/rates/usd?parammode=2")
@@ -51,21 +42,23 @@ export default class ShopItem extends Component {
 
 
     render() {
-        const {error, isLoaded, currency, products} = this.state;
+        const {error, isLoaded, currency} = this.state;
+        const {products} = this.props;
 
         return (
 
+
             products.map((product) => {
 
-                    return (
-                    <div id="ShopItem" className="container" key={product.id}>
+                return (
+                    <div className="container" key={product.id}>
                         <div className="item">
                             <div className="shop__img-wrap">
                                 <img className="shop__img" src={product.imageLink} alt=""/>
                             </div>
                             <div className="shop__text">
-                                <Link to={`catalog/${product.id}`} className="shop__title"
-                                      href="#">{product.title} </Link>
+                                <Link to={`/catalog/${product.id}`}><p className="shop__title">
+                                    {product.title}</p></Link>
                                 <p className="shop__description"
                                    dangerouslySetInnerHTML={{__html: product.description}}/>
                             </div>
@@ -79,10 +72,9 @@ export default class ShopItem extends Component {
 
                     </div>
 
-                    )
+                )
 
             }))
 
     }
 }
-export default ShopItem;

@@ -23,4 +23,3 @@ export default class Header extends Component {
     );
   }
 }
-export default Header;

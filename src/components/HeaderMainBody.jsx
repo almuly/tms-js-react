@@ -17,4 +17,3 @@ export default class HeaderMainBody extends Component {
         );
     }
 }
-export default HeaderMainBody;

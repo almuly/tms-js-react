@@ -3,9 +3,10 @@ import React, {Component} from 'react';
 
 import Header from './Header.jsx';
 import MainBody from './MainBody.jsx';
+import HeaderMainBody from "./HeaderMainBody";
 
 import '../styles/components/App.css';
-import HeaderMainBody from "./HeaderMainBody";
+
 
 
 export default class App extends Component {
@@ -45,7 +46,7 @@ export default class App extends Component {
 
                     <Header basket={this.state.basket}/>
                     <HeaderMainBody/>
-                    <MainBody addToBasket={this.addToBasket} removeFromBasket={this.removeFromBasket}/>
+                    <MainBody addToBasket={this.addToBasket} removeFromBasket={this.removeFromBasket} />
 
             </>
         );

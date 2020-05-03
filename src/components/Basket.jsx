@@ -20,4 +20,3 @@ export default class Basket extends Component {
     );
   }
 }
-export default Basket;
