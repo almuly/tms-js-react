@@ -29,6 +29,7 @@
     align-self: end;
     justify-self: end;
     text-align: right;
+    padding: 12px 25px;
 }
 
 .button__price {

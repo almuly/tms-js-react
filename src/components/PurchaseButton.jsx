@@ -1,39 +1,55 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, { useState,useLayoutEffect } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
-import '../styles/components/PurchaseButton.css';
-import classNames from 'classnames';
+import PropTypes from "prop-types";
+import { addToBasket, removeFromBasket } from "../actions";
 
-export default class PurchaseButton extends Component {
+import "../styles/components/PurchaseButton.css";
+import classNames from "classnames";
 
-    constructor(props) {
-        super(props);
-        this.state = {active: false};
+const PurchaseButton = ({
+  addToBasket,
+  removeFromBasket,
+  product,
+  ...props
+}) => {
+  const [active, setActive] = useState({ flag: false });
+  useLayoutEffect(() => {
 
-        this.handleClick = this.handleClick.bind(this);
-
+    if (props.basket.productIds.includes(product.id)) {
+      setActive({ flag: true });
+    } else {
+      setActive({ flag: false });
     }
+  }, [props.basket, product]);
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    const payload = { productId: product.id, priceValue: product.price.value };
+    active.flag ? removeFromBasket(payload) : addToBasket(payload);
+  };
+  const text = active.flag ? "Remove from Basket" : "Add to Basket";
 
-    handleClick(event) {
-        event.preventDefault();
-        this.setState(prevState => ({active: !prevState.active}), () => {
-            this.props.onClick(this.state.active);
-        });
+  return (
+    <a
+      href="#"
+      className={classNames("purchase__button", { __active: active.flag })}
+      onClick={handleClick}
+    >
+      {text}
+    </a>
+  );
+};
 
-    }
+const mapStateToProps = (state) => ({
+  basket: state.basket,
+});
+const mapDispatchToProps = {
+  addToBasket,
+  removeFromBasket,
+};
 
-    render() {
-        const {active} = this.state;
-
-        const text = active ? 'Remove from Basket' : 'Add to Basket';
-
-console.log(this.props);
-        return (
-
-            <a href="#" className={classNames('purchase__button', {'__active': active})}
-               onClick={this.handleClick}>{text}</a>
-
-        )
-    }
-}
+export default compose(connect(mapStateToProps, mapDispatchToProps))(
+  PurchaseButton
+);
